@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --raisin-black: #1b1927ff;
+  --timberwolf: #d8d6d8ff;
+  --jet: #3b3849ff;
+  --wenge: #554747ff;
+  --raisin-black-2: #1a1826ff;
+  --liver: #6d4e46ff;
+  --atomic-tangerine: #f4894fff;
+  --english-violet: #3b384bff;
+  --fire-engine-red: #d1002bff;
+  --raisin-black-3: #2a2738ff;
+}
+
+body,
+html {
+  background-color: var(--raisin-black);
+  font-family: 'Quicksand', sans-serif;
+  color: var(--timberwolf);
+}
