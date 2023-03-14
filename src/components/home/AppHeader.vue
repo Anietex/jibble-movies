@@ -13,11 +13,12 @@
 <script lang="ts">
 import type { SetupContext } from 'vue'
 import { debounce } from 'lodash'
+import { defineComponent } from "vue";
 
-export default {
+export default defineComponent({
   name: 'AppHeader',
-  setup(_: any, ctx: SetupContext) {
-    const handleInputChange = debounce((event: InputEvent) => {
+  setup(props, ctx) {
+    const handleInputChange = debounce((event) => {
       ctx.emit('on-search', event.target?.value)
     }, 500)
 
@@ -26,7 +27,7 @@ export default {
     }
   },
   emits: ['on-search']
-}
+})
 </script>
 
 <style scoped lang="scss">

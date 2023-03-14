@@ -4,7 +4,6 @@ import { mount } from '@vue/test-utils'
 import AppHeader from '../../home/AppHeader.vue'
 
 describe('AppHeader', () => {
-
   beforeEach(() => {
     vi.useFakeTimers()
   })
@@ -14,13 +13,12 @@ describe('AppHeader', () => {
     expect(wrapper.text()).toContain('Jibble Movies')
   })
 
-
-  it("should emit search event", () => {
+  it('should emit search event', () => {
     const wrapper = mount(AppHeader)
-    const searchInput = wrapper.find('input');
-    searchInput.setValue('movie name');
+    const searchInput = wrapper.find('input')
+    searchInput.setValue('movie name')
     vi.advanceTimersByTime(500)
-    expect(wrapper.emitted('on-search')).toBeTruthy();
-    expect( wrapper.emitted('on-search')[0][0]).toBe('movie name');
+    expect(wrapper.emitted('on-search')).toBeTruthy()
+    expect(wrapper.emitted('on-search')?.[0]?.[0]).toBe('movie name');
   })
 })

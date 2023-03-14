@@ -1,7 +1,7 @@
 <template>
   <main>
     <div class="container">
-      <app-header @on-search="(value) => (this.filterTitle = value)" />
+      <app-header @on-search="handleSearch" />
       <div v-if="isLoading">
         <p>Loading...</p>
       </div>
@@ -14,7 +14,7 @@
           <v-window-item value="all-movies" class="all-movies-tab">
             <movies-list title="All Movies" :movies="movies" />
             <div class="pagination">
-              <v-pagination :length="moviesMeta.total_pages" v-model="page"></v-pagination>
+              <v-pagination :length="moviesMeta?.total_pages" v-model="page"></v-pagination>
             </div>
           </v-window-item>
           <v-window-item value="favourites" class="favourite-movies-tab">
@@ -45,12 +45,14 @@ export default defineComponent({
       fetchMovies({ page: 1 })
     })
 
+    const handleSearch = (value: string) => filterTitle.value = value
+
     return {
       movies,
       page,
       moviesMeta,
       isLoading,
-      filterTitle,
+      handleSearch,
       favouritesMovies: movieStore.favourites
     }
   },
